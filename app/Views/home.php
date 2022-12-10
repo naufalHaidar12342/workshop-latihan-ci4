@@ -1,0 +1,10 @@
+<?= $this->extend("components/Layout");?>
+<?= $this->section("konten-website");?>
+<?= $this->include("components/hero"); ?>
+<?= $this->include("components/banner");?>
+<?= $this->include("components/womanBanner");?>
+<?= $this->include("components/dealOfWeek");?>
+<?= $this->include("components/manBanner");?>
+<?= $this->include("components/socialMedia");?>
+<?= $this->include("components/latestBlog");?>
+<?= $this->endSection();?>
