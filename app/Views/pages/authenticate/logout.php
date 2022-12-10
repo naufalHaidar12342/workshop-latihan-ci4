@@ -1,4 +1,4 @@
 <?= $this->extend("components/layout")?>
-<?= $this->content("konten-website")?>
+<?= $this->section("konten-website")?>
 
 <?= $this->endSection()?>

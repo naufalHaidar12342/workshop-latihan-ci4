@@ -1,5 +1,5 @@
 <?= $this->extend("components/layout")?>
-<?= $this->content("konten-website")?>
+<?= $this->section("konten-website")?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
   <div class="container">
