@@ -1,4 +1,6 @@
-
+<?php
+$session = session(); 
+?>
 <!-- Header Section Begin -->
 <header class="header-section">
   <div class="header-top">
@@ -77,10 +79,14 @@
       </div>
       <nav class="nav-menu mobile-menu">
         <ul>
-          <li class="active"><a href="./index.html">Home</a></li>
-          <li><a href="./shop.html">Shop</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./contact.html">Transaction</a></li>
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="">Shop</a></li>
+          <li><a href="">Contact</a></li>
+          <?php if($session->get("isLoggedIn")): ?>
+            <a href="<?= site_url('logout') ?>" class="login-panel"><i class="fa fa-user"></i>Logout ( <?= $session->get('username')?> )</a>
+          <?php else: ?>
+            <a href="<?= site_url('login') ?>" class="login-panel"><i class="fa fa-user"></i>Login</a>
+          <?php endif ?>
         </ul>
       </nav>
       <div id="mobile-menu-wrap"></div>
