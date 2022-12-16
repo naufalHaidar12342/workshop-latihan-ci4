@@ -1,5 +1,20 @@
 <?= $this->extend("components/layout") ?>
 <?= $this->section("konten-website") ?>
+<?php
+$username = [
+  "name" => "username",
+  "id" => "username",
+  "value" => null,
+];
+
+$password = [
+  "name" => "password",
+  "id" => "password",
+];
+
+$session = session();
+$errors = $session->getFlashdata("errors");
+?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
   <div class="container">
@@ -22,29 +37,31 @@
       <div class="col-lg-6 offset-lg-3">
         <div class="login-form">
           <h2>Login</h2>
-          <form action="#">
-            <div class="group-input">
-              <label for="username">Username or email address *</label>
-              <input type="text" id="username" />
+          <?php if ($errors != null) : ?>
+            <div class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Terjadi kesalahan</h4>
+              <hr>
+              <p class="mb-0">
+                <?php foreach ($errors as $err) {
+                  echo $err . "<br>";
+                } ?>
+              </p>
             </div>
-            <div class="group-input">
-              <label for="pass">Password *</label>
-              <input type="text" id="pass" />
-            </div>
-            <div class="group-input gi-check">
-              <div class="gi-more">
-                <label for="save-pass">
-                  Save Password
-                  <input type="checkbox" id="save-pass" />
-                  <span class="checkmark"></span>
-                </label>
-                <a href="#" class="forget-pass">Forget your Password</a>
-              </div>
-            </div>
-            <button type="submit" class="site-btn login-btn">Sign In</button>
-          </form>
+          <?php endif ?>
+          <?php form_open("login") ?>
+          <div class="group-input">
+            <label for="username">Username *</label>
+            <?php form_input($username) ?>
+          </div>
+          <div class="group-input">
+            <label for="pass">Password *</label>
+            <?php form_password($password) ?>
+          </div>
+          <?php form_submit("submit", "Sign In", [
+            "class" => "site-btn login-btn"
+          ]) ?>
           <div class="switch-login">
-            <a href="./register.html" class="or-login">Or Create An Account</a>
+            <a href="<?= site_url("register"); ?>" class="or-login">Or Create An Account</a>
           </div>
         </div>
       </div>
