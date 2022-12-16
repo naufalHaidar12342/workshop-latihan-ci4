@@ -38,6 +38,57 @@ class Validation extends BaseConfig
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+    /* validation for register */
+    public $register = [
+        'username' => [
+            'rules' => 'required|min_length[5]',
+        ],
+        'password' => [
+            'rules' => 'required',
+        ],
+        'repeatPassword' => [
+            'rules' => 'required|matches[password]',
+        ],
+    ];
+
+    /* error to be shown when 
+    registering account failed */
+    public $register_errors = [
+        'username' => [
+            'required' => '{field} Harus Diisi',
+            'min_length' => '{field} Minimal 5 Karakter',
+        ],
+        'password' => [
+            'required' => '{field} Harus Diisi',
+        ],
+        'repeatPassword' => [
+            'required' => '{field} Harus Diisi',
+            'matches' => '{field} Tidak Match Dengan Password'
+        ],
+    ];
+
+    /* validation for login */
+    public $login = [
+        'username' => [
+            'rules' => 'required|min_length[5]',
+        ],
+        'password' => [
+            'rules' => 'required',
+        ],
+    ];
+
+    /* error to be shown when 
+    logging into account failed */
+    public $login_errors = [
+        'username' => [
+            'required' => '{field} Harus Diisi',
+            'min_length' => '{field} Minimal 5 Karakter',
+        ],
+        'password' => [
+            'required' => '{field} Harus Diisi',
+        ],
+    ];
+
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
