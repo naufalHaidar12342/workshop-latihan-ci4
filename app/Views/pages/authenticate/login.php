@@ -1,5 +1,5 @@
-<?= $this->extend("components/layout")?>
-<?= $this->section("konten-website")?>
+<?= $this->extend("components/layout") ?>
+<?= $this->section("konten-website") ?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
   <div class="container">
@@ -52,4 +52,4 @@
   </div>
 </div>
 <!-- Login Form Section End -->
-<?= $this->endSection()?>
+<?= $this->endSection() ?>
