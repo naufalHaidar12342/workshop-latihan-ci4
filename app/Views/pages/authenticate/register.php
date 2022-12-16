@@ -53,23 +53,23 @@ $errors = $session->getFlashdata('errors');
               </p>
             </div>
           <?php endif ?>
-          <?php form_open("register") ?>
-          <div class="group-input">
-            <label for="username">Username *</label>
-            <?php form_input($username) ?>
-          </div>
-          <div class="group-input">
-            <label for="pass">Password *</label>
-            <?php form_password($password) ?>
-          </div>
-          <div class="group-input">
-            <label for="con-pass">Confirm Password *</label>
-            <?php form_password($repeatPassword) ?>
-          </div>
-          <?php form_submit("submit", "Register", [
-            "class" => "site-btn register-btn"
-          ]) ?>
-          <?php form_close() ?>
+          <form action="<?= site_url("register"); ?>" method="POST">
+            <div class="group-input">
+              <label for="username">Username *</label>
+              <input type="text" id="username" name="username" />
+            </div>
+            <div class="group-input">
+              <label for="pass">Password *</label>
+              <input type="password" id="pass" name="password" />
+            </div>
+            <div class="group-input">
+              <label for="con-pass">Confirm Password *</label>
+              <input type="password" id="con-pass" name="repeatPassword" />
+            </div>
+            <button type="submit" class="site-btn register-btn" value="Register">
+              Register
+            </button>
+          </form>
           <div class="switch-login">
             <a href="<?= site_url("login"); ?>" class="or-login">Or Login</a>
           </div>

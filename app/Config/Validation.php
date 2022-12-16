@@ -63,7 +63,7 @@ class Validation extends BaseConfig
         ],
         'repeatPassword' => [
             'required' => '{field} Harus Diisi',
-            'matches' => '{field} Tidak Match Dengan Password'
+            'matches' => '{field} tidak sama dengan Password'
         ],
     ];
 

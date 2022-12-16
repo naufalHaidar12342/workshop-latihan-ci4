@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PenggunaModel extends Model
 {
-    protected $table = 'user';
+    protected $table = 'pengguna';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'username',
@@ -18,6 +18,6 @@ class PenggunaModel extends Model
         'updated_date',
         'updated_by',
     ];
-    protected $returnType = 'App\Entities\User';
+    protected $returnType = 'App\Entities\Pengguna';
     protected $useTimestamps = false;
 }

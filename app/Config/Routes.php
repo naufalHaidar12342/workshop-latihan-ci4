@@ -38,10 +38,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 // login routes
 $routes->get('login', 'AuthenticateUser::login');
-$routes->get('login', 'Authenticate::login');
+$routes->add('login', 'AuthenticateUser::login');
 // register routes
 $routes->get('register', 'AuthenticateUser::register');
-$routes->get('register', 'AuthenticateUser::register');
+$routes->add('register', 'AuthenticateUser::register');
 
 // logout route
 $routes->get('logout', 'AuthenticateUser::logout');
