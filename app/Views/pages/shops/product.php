@@ -1,13 +1,71 @@
 <?= $this->extend("components/Layout"); ?>
 <?= $this->section("konten-website"); ?>
+<?php
+
+$session = session();
+
+$id_barang = [
+    'name' => 'id_barang',
+    'id' => 'id_barang',
+    'value' => $barang->id,
+    'type' => 'hidden'
+];
+
+$id_pembeli = [
+    'name' => 'id_pembeli',
+    'id' => 'id_pembeli',
+    'value' => session()->get('id'),
+    'type' => 'hidden'
+];
+$jumlah = [
+    'name' => 'jumlah',
+    'id' => 'jumlah',
+    'value' => 1,
+    'min' => 1,
+    'type' => 'number',
+    'max' => $barang->stok,
+    'class' => 'form-control',
+];
+$total_harga = [
+    'name' => 'total_harga',
+    'id' => 'total_harga',
+    'value' => null,
+    'readonly' => true,
+    'class' => 'form-control',
+];
+$ongkir = [
+    'name' => 'ongkir',
+    'id' => 'ongkir',
+    'value' => null,
+    'readonly' => true,
+    'class' => 'form-control',
+];
+$alamat = [
+    'name' => 'alamat',
+    'id' => 'alamat',
+    'value' => null,
+    'class' => 'form-control',
+];
+
+$submit = [
+    'name' => 'submit',
+    'id' => 'submit',
+    'type' => 'submit',
+    'value' => 'Beli',
+    'class' => 'primary-btn pd-cart'
+];
+?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
+                    <a href="<?= site_url("/") ?>">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                    <a href="<?= site_url("shop") ?>">Shop</a>
                     <span>Detail</span>
                 </div>
             </div>
