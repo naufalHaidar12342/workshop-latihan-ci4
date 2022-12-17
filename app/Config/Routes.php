@@ -57,6 +57,9 @@ $routes->get('shop/getcost', 'Shop::getCost');
 $routes->get('transaction', 'Transaksi::index', ['filter' => 'auth']);
 $routes->get('invoice/(:segment)', 'Transaksi::invoice', ['filter' => 'auth']);
 $routes->add('buy', 'Transaksi::buy', ['filter' => 'auth']);
+
+// user review/comments route
+$routes->add('komentar/create', 'Komentar::create');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
