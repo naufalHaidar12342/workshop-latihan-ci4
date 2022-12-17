@@ -15,6 +15,7 @@ class Shop extends BaseController
     private $barangModel;
     private $komentarModel;
     private $bantuanLibrary;
+
     public function __construct()
     {
         helper('form');
@@ -32,7 +33,7 @@ class Shop extends BaseController
             ->findAll();
         $kategoriHome = $this->kategoriModel->findAll();
         return view(
-            'shop/index',
+            '/pages/shops/index',
             [
                 'barangs' => $barang,
                 'kategoris' => $kategoriHome,
@@ -53,7 +54,7 @@ class Shop extends BaseController
             ->findAll();
         $kategori = $this->kategoriModel->findAll();
         return view(
-            'shop/index',
+            '/pages/shops/index',
             [
                 'barangs' => $barang,
                 'kategoris' => $kategori,
@@ -81,7 +82,7 @@ class Shop extends BaseController
             );
 
         return view(
-            'shop/product',
+            '/pages/shops/product',
             [
                 'barang' => $barang,
                 'kategoris' => $kategoriProduct,

@@ -82,9 +82,13 @@ $submit = [
                 <div class="filter-widget">
                     <h4 class="fw-title">Categories</h4>
                     <ul class="filter-catagories">
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
+                        <?php foreach ($kategori as $index => $kategori) : ?>
+                            <li>
+                                <a href="<?= site_url('shop/category/' . $kategori->id) ?>">
+                                    Men
+                                </a>
+                            </li>
+                        <?php endforeach ?>
                     </ul>
                 </div>
                 <div class="filter-widget">
@@ -204,25 +208,36 @@ $submit = [
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="img/product-single/product-1.jpg" alt="">
+                            <img class="product-big-img" src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg"><img src="img/product-single/product-1.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-2.jpg"><img src="img/product-single/product-2.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="img/product-single/product-3.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="img/product-single/product-3.jpg" alt=""></div>
+                                <div class="pt active" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                </div>
+
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                </div>
+
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                </div>
+
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="product-details">
                             <div class="pd-title">
-                                <span>oranges</span>
-                                <h3>Pure Pineapple</h3>
+                                <span><?= $barang->nama ?></span>
+                                <h3><?= $barang->nama ?></h3>
                                 <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                             </div>
                             <div class="pd-rating">
@@ -234,55 +249,59 @@ $submit = [
                                 <span>(5)</span>
                             </div>
                             <div class="pd-desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor
-                                    sit amet, consectetur adipisicing elit, sed do mod tempor</p>
-                                <h4>$495.00 <span>629.99</span></h4>
-                            </div>
-                            <div class="pd-color">
-                                <h6>Color</h6>
-                                <div class="pd-color-choose">
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-black">
-                                        <label for="cc-black"></label>
+                                <h4>Rp. <?= $barang->harga ?></h4>
+                                <hr>
+                                <?php if ($session->get("isLoggedIn")) : ?>
+                                    <h4>Pengiriman</h4>
+                                    <div class="form-group">
+                                        <label for="provinsi">Pilih Provinsi</label>
+                                        <select class="form-control" id="provinsi">
+                                            <option>Select Provinsi</option>
+                                            <?php foreach ($provinsi as $p) : ?>
+                                                <option value="<?= $p->province_id ?>"><?= $p->province ?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-yellow">
-                                        <label for="cc-yellow" class="cc-yellow"></label>
+                                    <div class="form-group">
+                                        <label for="kabupaten">Pilih Kabupaten/Kota</label>
+                                        <select class="form-control" id="kabupaten">
+                                            <option>Select Kabupaten/kota</option>
+                                        </select>
                                     </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-violet">
-                                        <label for="cc-violet" class="cc-violet"></label>
+                                    <div class="form-group">
+                                        <label for="service">Pilih Service</label>
+                                        <select class="form-control" id="service">
+                                            <option>Select Service</option>
+                                        </select>
                                     </div>
-                                </div>
+                                    <strong>Estimasi : <span id="estimasi"></span></strong>
+                                    <hr>
+                                    <?= form_open('buy') ?>
+                                    <?= form_input($id_barang) ?>
+                                    <?= form_input($id_pembeli) ?>
+                                    <div class="form-group">
+                                        <?= form_label('Jumlah Pembelian', 'jumlah') ?>
+                                        <?= form_input($jumlah) ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?= form_label('Ongkir', 'ongkir') ?>
+                                        <?= form_input($ongkir) ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?= form_label('Total Harga', 'total_harga') ?>
+                                        <?= form_input($total_harga) ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?= form_label('Alamat', 'alamat') ?>
+                                        <?= form_input($alamat) ?>
+                                    </div>
+                                    <div class="text-right">
+                                        <?= form_submit($submit) ?>
+                                    </div>
+                                    <?= form_close() ?>
+                                <?php endif ?>
                             </div>
-                            <div class="pd-size-choose">
-                                <div class="sc-item">
-                                    <input type="radio" id="sm-size">
-                                    <label for="sm-size">s</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="md-size">
-                                    <label for="md-size">m</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="lg-size">
-                                    <label for="lg-size">l</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="xl-size">
-                                    <label for="xl-size">xs</label>
-                                </div>
-                            </div>
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                                <a href="#" class="primary-btn pd-cart">Add To Cart</a>
-                            </div>
-                            <ul class="pd-tags">
-                                <li><span>CATEGORIES</span>: More Accessories, Wallets & Cases</li>
-                                <li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
-                            </ul>
+
                             <div class="pd-share">
                                 <div class="p-code">Sku : 00012</div>
                                 <div class="pd-social">
@@ -298,161 +317,42 @@ $submit = [
                     <div class="tab-item">
                         <ul class="nav" role="tablist">
                             <li>
-                                <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews (02)</a>
+                                <a data-toggle="tab" href="#tab-3" role="tab">
+                                    Customer Reviews (<?= count($komentars) ?>)
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="tab-item-content">
                         <div class="tab-content">
-                            <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-                                <div class="product-content">
-                                    <div class="row">
-                                        <div class="col-lg-7">
-                                            <h5>Introduction</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
-                                            <h5>Features</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <img src="img/product-single/tab-desc.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="tab-2" role="tabpanel">
-                                <div class="specification-table">
-                                    <table>
-                                        <tr>
-                                            <td class="p-catagory">Customer Rating</td>
-                                            <td>
-                                                <div class="pd-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <span>(5)</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Price</td>
-                                            <td>
-                                                <div class="p-price">$495.00</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Add To Cart</td>
-                                            <td>
-                                                <div class="cart-add">+ add to cart</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Availability</td>
-                                            <td>
-                                                <div class="p-stock">22 in stock</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Weight</td>
-                                            <td>
-                                                <div class="p-weight">1,3kg</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Size</td>
-                                            <td>
-                                                <div class="p-size">Xxl</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Color</td>
-                                            <td><span class="cs-color"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Sku</td>
-                                            <td>
-                                                <div class="p-code">00012</div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                 <div class="customer-review-option">
-                                    <h4>2 Comments</h4>
+                                    <h4>
+                                        <?= count($komentars) ?> Comments
+                                    </h4>
                                     <div class="comment-option">
                                         <div class="co-item">
-                                            <div class="avatar-pic">
-                                                <img src="img/product-single/avatar-1.png" alt="">
-                                            </div>
-                                            <div class="avatar-text">
-                                                <div class="at-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
+                                            <?php foreach ($komentars as $index => $komentar) : ?>
+                                                <div class="avatar-pic">
+                                                    <img src="<?= base_url("/img/product-single/avatar-2.png") ?>" alt="avatar">
                                                 </div>
-                                                <h5>Brandon Kelley <span>27 Aug 2019</span></h5>
-                                                <div class="at-reply">Nice !</div>
-                                            </div>
+                                                <div class="avatar-text">
+                                                    <div class="at-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <h5> <?= $komentar->username ?>
+                                                        <span><?= $komentar->created_date ?></span>
+                                                    </h5>
+                                                    <div class="at-reply">
+                                                        <?= $komentar->komentar ?>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach ?>
                                         </div>
-                                        <div class="co-item">
-                                            <div class="avatar-pic">
-                                                <img src="img/product-single/avatar-2.png" alt="">
-                                            </div>
-                                            <div class="avatar-text">
-                                                <div class="at-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <h5>Roy Banks <span>27 Aug 2019</span></h5>
-                                                <div class="at-reply">Nice !</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="personal-rating">
-                                        <h6>Your Ratind</h6>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <div class="leave-comment">
-                                        <h4>Leave A Comment</h4>
-                                        <form action="#" class="comment-form">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Name">
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Email">
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <textarea placeholder="Messages"></textarea>
-                                                    <button type="submit" class="site-btn">Send message</button>
-                                                </div>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -461,8 +361,82 @@ $submit = [
                 </div>
             </div>
         </div>
-    </div>
 </section>
 <!-- Product Shop Section End -->
 
 <?= $this->endSection(); ?>
+<?= $this->section('script') ?>
+<script>
+    $('document').ready(function() {
+        var jumlah_pembelian = 1;
+        var harga = <?= $barang->harga ?>;
+        var ongkir = 0;
+        $("#provinsi").on('change', function() {
+            $("#kabupaten").empty();
+            var id_province = $(this).val();
+            $.ajax({
+                url: "<?= site_url('shop/getcity') ?>",
+                type: 'GET',
+                data: {
+                    'id_province': id_province,
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    var results = data["rajaongkir"]["results"];
+                    for (var i = 0; i < results.length; i++) {
+                        $("#kabupaten").append($('<option>', {
+                            value: results[i]["city_id"],
+                            text: results[i]['city_name']
+                        }));
+                    }
+                },
+
+            });
+        });
+
+        $("#kabupaten").on('change', function() {
+            var id_city = $(this).val();
+            $.ajax({
+                url: "<?= site_url('shop/getcost') ?>",
+                type: 'GET',
+                data: {
+                    'origin': 154,
+                    'destination': id_city,
+                    'weight': 1000,
+                    'courier': 'jne'
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    var results = data["rajaongkir"]["results"][0]["costs"];
+                    for (var i = 0; i < results.length; i++) {
+                        var text = results[i]["description"] + "(" + results[i]["service"] + ")";
+                        $("#service").append($('<option>', {
+                            value: results[i]["cost"][0]["value"],
+                            text: text,
+                            etd: results[i]["cost"][0]["etd"]
+                        }));
+                    }
+                },
+
+            });
+        });
+
+        $("#service").on('change', function() {
+            var estimasi = $('option:selected', this).attr('etd');
+            ongkir = parseInt($(this).val());
+            $("#ongkir").val(ongkir);
+            $("#estimasi").html(estimasi + " Hari");
+            var total_harga = (jumlah_pembelian * harga) + ongkir;
+            $("#total_harga").val(total_harga);
+        });
+
+        $("#jumlah").on("change", function() {
+            jumlah_pembelian = $("#jumlah").val();
+            var total_harga = (jumlah_pembelian * harga) + ongkir;
+            $("#total_harga").val(total_harga);
+        });
+    });
+</script>
+<?= $this->endSection() ?>
