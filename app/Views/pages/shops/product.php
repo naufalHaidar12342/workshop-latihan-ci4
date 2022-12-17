@@ -84,8 +84,8 @@ $submit = [
                     <ul class="filter-catagories">
                         <?php foreach ($kategoris as $index => $kategori) : ?>
                             <li>
-                                <a href="<?= site_url('shop/category/' . $kategori->id) ?>">
-                                    Men
+                                <a href="<?= site_url("shop/category/{$kategori->id}") ?>">
+                                    <?= $kategori->nama ?>
                                 </a>
                             </li>
                         <?php endforeach ?>
@@ -208,27 +208,27 @@ $submit = [
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                            <img class="product-big-img" src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
-                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                <div class="pt active" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
-                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/'.$barang->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
-                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products'.$barang->gambar.'") ?>">
-                                    <img src="<?= base_url("/img/products'.$barang->gambar.'") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
                                 </div>
                             </div>
                         </div>
