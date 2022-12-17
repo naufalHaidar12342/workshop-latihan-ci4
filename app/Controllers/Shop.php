@@ -69,9 +69,9 @@ class Shop extends BaseController
         $barang = $this->barangModel->find($id);
         $kategoriProduct = $this->kategoriModel->findAll();
         $komentar = $this->komentarModel
-            ->select('komentar.*, user.username')
+            ->select('komentar.*, pengguna.username')
             ->where('id_barang', $id)
-            ->join('user', 'komentar.id_user=user.id')
+            ->join('pengguna', 'komentar.id_pengguna=pengguna.id')
             ->findAll();
 
         $provinsi = $this->bantuanLibrary
@@ -84,10 +84,11 @@ class Shop extends BaseController
         return view(
             '/pages/shops/product',
             [
+
                 'barang' => $barang,
                 'kategoris' => $kategoriProduct,
                 'komentars' => $komentar,
-                'provinsi' => json_decode($provinsi)->rajaOngkirAPI->results,
+                'provinsi' => json_decode($provinsi)->rajaongkir->results,
             ]
         );
     }

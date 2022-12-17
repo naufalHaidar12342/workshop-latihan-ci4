@@ -82,7 +82,7 @@ $submit = [
                 <div class="filter-widget">
                     <h4 class="fw-title">Categories</h4>
                     <ul class="filter-catagories">
-                        <?php foreach ($kategori as $index => $kategori) : ?>
+                        <?php foreach ($kategoris as $index => $kategori) : ?>
                             <li>
                                 <a href="<?= site_url('shop/category/' . $kategori->id) ?>">
                                     Men
