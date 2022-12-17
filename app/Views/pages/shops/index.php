@@ -177,7 +177,7 @@
                                         </div>
                                         <ul>
                                             <li class="w-icon active">
-                                                <a href="<?= site_url("/img/products/{$barang->gambar}") ?>">
+                                                <a href="<?= site_url("shop/product/{$barang->id}") ?>">
                                                     <i class="icon_bag_alt"></i>
                                                 </a>
                                             </li>
@@ -187,7 +187,7 @@
                                                 </a>
                                             </li>
                                             <li class="w-icon">
-                                                <a href="<?= site_url("/img/products/{$barang->id}") ?>">
+                                                <a href="<?= site_url("shop/product/{$barang->id}") ?>">
                                                     <i class="fa fa-random"></i>
                                                 </a>
                                             </li>

@@ -7,7 +7,7 @@ $session = session();
 $id_barang = [
     'name' => 'id_barang',
     'id' => 'id_barang',
-    'value' => $barang->id,
+    'value' => $barangs->id,
     'type' => 'hidden'
 ];
 
@@ -23,7 +23,7 @@ $jumlah = [
     'value' => 1,
     'min' => 1,
     'type' => 'number',
-    'max' => $barang->stok,
+    'max' => $barangs->stok,
     'class' => 'form-control',
 ];
 $total_harga = [
@@ -208,27 +208,27 @@ $submit = [
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
+                            <img class="product-big-img" src="<?= base_url("/img/products/{$barangs->gambar}") ?>" alt="">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
-                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
+                                <div class="pt active" data-imgbigurl="<?= base_url("/img/products/{$barangs->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barangs->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/'.$barang->gambar.'") ?>">
-                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/'.$barangs->gambar.'") ?>">
+                                    <img src="<?= base_url("/img/products/{$barangs->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
-                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barangs->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barangs->gambar}") ?>" alt="">
                                 </div>
 
-                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barang->gambar}") ?>">
-                                    <img src="<?= base_url("/img/products/{$barang->gambar}") ?>" alt="">
+                                <div class="pt" data-imgbigurl="<?= base_url("/img/products/{$barangs->gambar}") ?>">
+                                    <img src="<?= base_url("/img/products/{$barangs->gambar}") ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -236,8 +236,8 @@ $submit = [
                     <div class="col-lg-6">
                         <div class="product-details">
                             <div class="pd-title">
-                                <span><?= $barang->nama ?></span>
-                                <h3><?= $barang->nama ?></h3>
+                                <span><?= $barangs->nama ?></span>
+                                <h3><?= $barangs->nama ?></h3>
                                 <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                             </div>
                             <div class="pd-rating">
@@ -249,7 +249,7 @@ $submit = [
                                 <span>(5)</span>
                             </div>
                             <div class="pd-desc">
-                                <h4>Rp. <?= $barang->harga ?></h4>
+                                <h4>Rp. <?= $barangs->harga ?></h4>
                                 <hr>
                                 <?php if ($session->get("isLoggedIn")) : ?>
                                     <h4>Pengiriman</h4>
@@ -368,7 +368,7 @@ $submit = [
 <script>
     $('document').ready(function() {
         var jumlah_pembelian = 1;
-        var harga = <?= $barang->harga ?>;
+        var harga = <?= $barangs->harga ?>;
         var ongkir = 0;
         $("#provinsi").on('change', function() {
             $("#kabupaten").empty();

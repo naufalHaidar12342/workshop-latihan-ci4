@@ -85,7 +85,7 @@ class Shop extends BaseController
             '/pages/shops/product',
             [
 
-                'barang' => $barang,
+                'barangs' => $barang,
                 'kategoris' => $kategoriProduct,
                 'komentars' => $komentar,
                 'provinsi' => json_decode($provinsi)->rajaongkir->results,
