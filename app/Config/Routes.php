@@ -52,6 +52,11 @@ $routes->get('shop/category/(:segment)', 'Shop::category/$1');
 $routes->get('shop/product/(:segment)', 'Shop::product/$1');
 $routes->get('shop/getcity', 'Shop::getCity');
 $routes->get('shop/getcost', 'Shop::getCost');
+
+// transaction route
+$routes->get('transaction', 'Transaksi::index', ['filter' => 'auth']);
+$routes->get('invoice/(:segment)', 'Transaksi::invoice', ['filter' => 'auth']);
+$routes->add('buy', 'Transaksi::buy', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
