@@ -10,7 +10,7 @@ use App\Libraries\Bantuan;
 class Shop extends BaseController
 {
     private $url = "https://api.rajaongkir.com/starter/";
-    private $apiKey = "APIKEYMASING-MASING";
+    private $apiKey = "895722d9e59d91aee2a393659d779c59";
 
     public function __construct()
     {
