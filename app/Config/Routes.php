@@ -60,6 +60,9 @@ $routes->add('buy', 'Transaksi::buy', ['filter' => 'auth']);
 
 // user review/comments route
 $routes->add('komentar/create', 'Komentar::create');
+
+// route of shop's contact
+$routes->add('contact', 'Home::contact');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
