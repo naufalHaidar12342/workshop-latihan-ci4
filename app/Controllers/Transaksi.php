@@ -31,7 +31,7 @@ class Transaksi extends BaseController
             ->where('id_pembeli', $id)
             ->findAll();
         return view(
-            'transaksi/index',
+            'transactions/index',
             [
                 'transaksis' => $transaksi,
             ]
@@ -78,8 +78,8 @@ class Transaksi extends BaseController
         $id = $this->request->uri->getSegment(2);
         $transaksi = $this->transaksi->find($id);
 
-        $userModel = new \App\Models\PenggunaModel();
-        $pembeli = $userModel->find($transaksi->id_pembeli);
+        $penggunaModel = new \App\Models\PenggunaModel();
+        $pembeli = $penggunaModel->find($transaksi->id_pembeli);
 
         $barang = $this->barang->find($transaksi->id_barang);
         $data = [
@@ -89,6 +89,6 @@ class Transaksi extends BaseController
         ];
 
         $filename = date('y-m-d-H-i-s') . '-invoice';
-        $this->pdf->generate('transaksi/invoice', $data, $filename);
+        $this->pdf->generate('transactions/invoice', $data, $filename);
     }
 }
