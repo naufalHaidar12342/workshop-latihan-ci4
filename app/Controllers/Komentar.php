@@ -24,7 +24,7 @@ class Komentar extends BaseController
                 $komentarEntity = new \App\Entities\Komentar();
 
                 $komentarEntity->fill($data);
-                $komentarEntity->id_user = $this->session->get('id');
+                $komentarEntity->id_pengguna = $this->session->get('id');
                 $komentarEntity->created_by = $this->session->get('id');
                 $komentarEntity->created_date = date("Y-m-d H:i:s");
 

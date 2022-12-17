@@ -10,7 +10,7 @@ class KomentarModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'id_barang',
-        'id_user',
+        'id_pengguna',
         'komentar',
         'created_date',
         'created_by',
