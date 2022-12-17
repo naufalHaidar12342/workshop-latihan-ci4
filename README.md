@@ -1,40 +1,38 @@
-# CodeIgniter 4 Application Starter
+# Workshop Sertifikasi Peminatan Web Developer - Latihan Membuat Online Shop dengan fashi-master template dan CodeIgniter 4
 
-## What is CodeIgniter?
+## Menjalankan project ini
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Penulis berasumsi bahwa Anda sudah memasang XAMPP, Git Version Control, dan Composer.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+> Jika Anda belum memiliki _software_ tersebut, dapat dicoba mengikuti tutorial berikut:
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+> > [Tutorial CodeIgniter 4 untuk PEMULA | 2. Persiapan & Instalasi - Web Programming Unpas](https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=3)
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+> > [GIT & GITHUB - Web Programming UNPAS](https://www.youtube.com/playlist?list=PLFIM0718LjIVknj6sgsSceMqlq242-jNf)
 
-## Installation & updates
+1. _Clone_ repository ini
+2. Buka terminal di dalam folder hasil clone sebelumnya, kemudian ketikkan perintah
+   `$ composer install`
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Migrasi database untuk membuat database di local
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Masih di terminal yang sama dari langkah sebelumnya, ketikkan `php spark migrate`
 
-## Setup
+## .env dan Konfigurasi yang perlu di-uncomment
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Copy file `env`. Anda akan mendapatkan `env copy`. Ubah nama file `env copy` menjadi `.env` untuk _override_ konfigurasi di dalam folder `app/`
+
+Beberapa setelan yang perlu Anda hilangkan tanda pagarnya (`#`) adalah sebagai berikut:
+
+`````
 
 ## Important Change with index.php
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+`index.php` is no longer in the root of the project! It has been moved inside the _public_ folder,
 for better security and separation of components.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+This means that you should configure your web server to "point" to your project's _public_ folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter _public/..._, as the rest of your logic and the
 framework are exposed.
 
 **Please** read the user guide for a better explanation of how CI4 works!
@@ -61,3 +59,10 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+
+````
+
+```
+
+```
+`````
