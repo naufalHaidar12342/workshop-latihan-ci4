@@ -77,7 +77,9 @@ $session = session();
           <li class="active"><a href="<?= site_url("/") ?>">Home</a></li>
           <li><a href="<?= site_url("shop") ?>">Shop</a></li>
           <li><a href="<?= site_url("contact") ?>">Contact</a></li>
-
+          <?php if ($session->get("isLoggedIn")) : ?>
+            <li><a href="<?= site_url("transaction") ?>">Transaction</a></li>
+          <?php endif ?>
         </ul>
       </nav>
       <div id="mobile-menu-wrap"></div>
