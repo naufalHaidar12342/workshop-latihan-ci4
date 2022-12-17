@@ -9,6 +9,11 @@ use App\Models\TransaksiModel;
 
 class Transaksi extends BaseController
 {
+    private $validation;
+    private $transaksi;
+    private $barang;
+    private $pembeli;
+    private $pdf;
     public function __construct()
     {
         helper('form');
@@ -22,10 +27,15 @@ class Transaksi extends BaseController
     public function index()
     {
         $id = session('id');
-        $transaksi = $this->transaksi->where('id_pembeli', $id)->findAll();
-        return view('transaksi/index', [
-            'transaksis' => $transaksi,
-        ]);
+        $transaksi = $this->transaksi
+            ->where('id_pembeli', $id)
+            ->findAll();
+        return view(
+            'transaksi/index',
+            [
+                'transaksis' => $transaksi,
+            ]
+        );
     }
 
     public function buy()
