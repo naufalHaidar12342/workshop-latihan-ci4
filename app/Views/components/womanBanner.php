@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3">
-        <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
+        <div class="product-large set-bg" data-setbg="/img/products/women-large.jpg">
           <h2>Women’s</h2>
           <a href="#">Discover More</a>
         </div>
