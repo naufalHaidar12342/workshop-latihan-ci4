@@ -1,5 +1,5 @@
 <!-- Deal Of The Week Section Begin-->
-<section class="deal-of-week set-bg spad" data-setbg="img/time-bg.jpg">
+<section class="deal-of-week set-bg spad" data-setbg="/img/time-bg.jpg">
   <div class="container">
     <div class="col-lg-6 text-center">
       <div class="section-title">

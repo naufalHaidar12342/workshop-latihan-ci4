@@ -53,7 +53,7 @@ $uri = service('uri');
         <div class="col-lg-2 col-md-2">
           <div class="logo">
             <a href="<?= base_url("/") ?>">
-              <img src="img/logo.png" alt="" />
+              <img src="/img/logo.png" alt="" />
             </a>
           </div>
         </div>
