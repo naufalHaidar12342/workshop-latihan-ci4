@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="/"><i class="fa fa-home"></i> Home</a>
                     <span>Shop</span>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <ul class="filter-catagories">
                         <?php foreach ($kategoris as $index => $kategori) : ?>
                             <li>
-                                <a href="<?= site_url("shop/category/'.$kategori->id") ?>">
+                                <a href="<?= site_url("shop/category/{$kategori->id}") ?>">
                                     <?= $kategori->nama ?>
                                 </a>
                             </li>
