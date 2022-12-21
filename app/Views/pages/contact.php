@@ -19,8 +19,7 @@
 <div class="map spad">
     <div class="container">
         <div class="map-inner">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.237734266609!2d110.40729731431786!3d-6.981249270302913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4ea9efeffd%3A0x4b9fea91170c31f1!2sFakultas%20Teknik%20Udinus!5e0!3m2!1sen!2sid!4v1671267364784!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" height="610" style="border:0" allowfullscreen="">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.159130024892!2d110.42048139765434!3d-6.990530232011726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b58cb03b915%3A0xfbb7ee7b9a2c8104!2sSimpang%20Lima%20Plaza!5e0!3m2!1sid!2sid!4v1671631099965!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="icon">
                 <i class="fa fa-map-marker"></i>
             </div>
@@ -70,7 +69,7 @@
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/N60_oXI3wtQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3N1BRRN2oNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="contact-form">
                     <div class="leave-comment">
                         <h4>Leave A Comment</h4>
