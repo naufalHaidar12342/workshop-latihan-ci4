@@ -61,10 +61,6 @@ $submit = [
     'class' => 'primary-btn pd-cart'
 ];
 
-// // dd($barangs)
-// dd($diskons)
-
-
 ?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
