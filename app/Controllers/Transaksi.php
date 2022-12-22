@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Libraries\InvoiceToPDF;
 use App\Models\BarangModel;
+use App\Models\DiskonModel;
 use App\Models\PenggunaModel;
 use App\Models\TransaksiModel;
 
@@ -14,6 +15,7 @@ class Transaksi extends BaseController
     private $barang;
     private $pembeli;
     private $pdf;
+    private $diskonModel;
     public function __construct()
     {
         helper('form');
@@ -22,6 +24,7 @@ class Transaksi extends BaseController
         $this->barang = new BarangModel();
         $this->pembeli = new PenggunaModel();
         $this->pdf = new InvoiceToPDF();
+        $this->diskonModel = new DiskonModel();
     }
 
     public function index()
@@ -51,10 +54,13 @@ class Transaksi extends BaseController
                 $id_barang = $this->request->getPost('id_barang');
                 $jumlah_pembelian = $this->request->getPost('jumlah');
 
+
                 $barang = $this->barang->find($id_barang);
                 $entityBarang = new \App\Entities\Barang();
 
                 $entityBarang->id = $id_barang;
+
+                $diskon_barang = $this->request->getPost("kode_voucher");
 
                 $entityBarang->stok = $barang->stok - $jumlah_pembelian;
                 $this->barang->save($entityBarang);

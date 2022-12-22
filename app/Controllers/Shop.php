@@ -6,6 +6,8 @@ use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use App\Models\KomentarModel;
 use App\Libraries\Bantuan;
+use App\Models\DiskonModel;
+use CodeIgniter\I18n\Time;
 
 class Shop extends BaseController
 {
@@ -15,6 +17,8 @@ class Shop extends BaseController
     private $barangModel;
     private $komentarModel;
     private $bantuanLibrary;
+    private $diskonModel;
+    private $todayDate;
 
     public function __construct()
     {
@@ -23,6 +27,8 @@ class Shop extends BaseController
         $this->komentarModel = new KomentarModel();
         $this->bantuanLibrary = new Bantuan();
         $this->kategoriModel = new KategoriModel();
+        $this->diskonModel = new DiskonModel();
+        $this->todayDate = Time::today()->toDateString();
     }
 
     public function index()
@@ -53,6 +59,7 @@ class Shop extends BaseController
             ->where('id_kategori', $id)
             ->findAll();
         $kategori = $this->kategoriModel->findAll();
+
         return view(
             '/pages/shops/index',
             [
@@ -80,7 +87,7 @@ class Shop extends BaseController
                 $this->apiKey,
                 method: "GET"
             );
-
+        $diskon = $this->diskonModel->findAll();
         return view(
             '/pages/shops/product',
             [
@@ -89,6 +96,7 @@ class Shop extends BaseController
                 'kategoris' => $kategoriProduct,
                 'komentars' => $komentar,
                 'provinsi' => json_decode($provinsi)->rajaongkir->results,
+                'diskons' => $diskon,
             ]
         );
     }
@@ -131,6 +139,18 @@ class Shop extends BaseController
                     "POST"
                 );
             return $this->response->setJSON($data);
+        }
+    }
+    public function getDiscount()
+    {
+        if ($this->request->isAJAX()) {
+            $sentDiscount = $this->request->getGet("voucher_code");
+            $sendDiscountData = $this->diskonModel
+                ->select("*")
+                ->where("tanggal_akhir_berlaku >", $this->todayDate)
+                ->where("kode_voucher", $sentDiscount)
+                ->first();
+            return $this->response->setJSON($sendDiscountData);
         }
     }
 }

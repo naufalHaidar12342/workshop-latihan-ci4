@@ -60,6 +60,11 @@ $submit = [
     'value' => 'Beli',
     'class' => 'primary-btn pd-cart'
 ];
+
+// // dd($barangs)
+// dd($diskons)
+
+
 ?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
@@ -380,6 +385,7 @@ $submit = [
         var jumlah_pembelian = 1;
         var harga = <?= $barangs->harga ?>;
         var ongkir = 0;
+
         $("#provinsi").on('change', function() {
             $("#kabupaten").empty();
             var id_province = $(this).val();
@@ -446,6 +452,30 @@ $submit = [
             var total_harga = (jumlah_pembelian * harga) + ongkir;
             $("#total_harga").val(total_harga);
         });
+        $("#voucher").on("change", () => {
+            // check if inputted voucher do exist
+            $.ajax({
+                url: "<?= site_url('shop/getdiscountt') ?>",
+                type: 'GET',
+                data: {
+                    'voucher_code': $kode_voucher,
+
+                },
+                dataType: 'json',
+                success: ((dataSent) => {
+                    if (!dataSent) {
+                        alert("Voucher diskon tidak ditemukan. Coba lagi dengan kode voucher lain.")
+                    } else {
+                        let discountPercentage = dataSent["besar_diskon"] / 100
+                        let discountedTotalPrice = (jumlah_pembelian * harga) + ongkir
+                        let totalHarga = ((jumlah_pembelian * harga) + ongkir) - discountedTotalPrice
+                        console.log(totalHarga)
+                        $("#total_harga").val(totalHarga);
+                    }
+                })
+            })
+
+        })
     });
 </script>
 <?= $this->endSection() ?>

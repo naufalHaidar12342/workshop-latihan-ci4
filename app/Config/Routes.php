@@ -52,6 +52,7 @@ $routes->get('shop/category/(:segment)', 'Shop::category/$1');
 $routes->get('shop/product/(:segment)', 'Shop::product/$1');
 $routes->get('shop/getcity', 'Shop::getCity');
 $routes->get('shop/getcost', 'Shop::getCost');
+$routes->get('shop/getdiscount', 'Shop::getDiscount');
 
 // transaction route
 $routes->get('transaction', 'Transaksi::index', ['filter' => 'auth']);
