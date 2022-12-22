@@ -109,10 +109,11 @@ class Validation extends BaseConfig
             'rules' => 'required',
         ],
         'voucher' => [
-            'rules' => "min_length[4]|max_length[10]",
+            'rules' => "min_length[4]|max_length[10]|alpha_numeric",
             'errors' => [
                 'min_length' => "{field} minimal sepanjang 4 digit",
                 'max_length' => "{field} maksimal sepanjang 10 digit",
+                'alpha_numeric' => "{field} hanya boleh berisi huruf dan angka, tanpa spasi",
             ]
         ],
     ];
