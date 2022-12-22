@@ -46,6 +46,12 @@ $alamat = [
     'value' => null,
     'class' => 'form-control',
 ];
+$kode_voucher = [
+    'name' => 'voucher',
+    'id' => 'voucher',
+    'value' => null,
+    'class' => 'form-control',
+];
 
 $submit = [
     'name' => 'submit',
@@ -286,6 +292,10 @@ $submit = [
                                     <div class="form-group">
                                         <?= form_label('Ongkir', 'ongkir') ?>
                                         <?= form_input($ongkir) ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?= form_label('Kode Voucher', 'voucher') ?>
+                                        <?= form_input($kode_voucher) ?>
                                     </div>
                                     <div class="form-group">
                                         <?= form_label('Total Harga', 'total_harga') ?>

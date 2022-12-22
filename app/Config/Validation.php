@@ -107,7 +107,14 @@ class Validation extends BaseConfig
         ],
         'ongkir' => [
             'rules' => 'required',
-        ]
+        ],
+        'voucher' => [
+            'rules' => "min_length[4]|max_length[10]",
+            'errors' => [
+                'min_length' => "{field} minimal sepanjang 4 digit",
+                'max_length' => "{field} maksimal sepanjang 10 digit",
+            ]
+        ],
     ];
 
     public $komentar = [
