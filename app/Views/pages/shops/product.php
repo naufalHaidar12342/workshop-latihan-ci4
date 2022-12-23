@@ -380,8 +380,8 @@ $submit = [
     $('document').ready(function() {
         var jumlah_pembelian = 1;
         var harga = <?= $barangs->harga ?>;
-        var ongkir = 0;
-        var discountedTotalPrice = 0
+        let ongkir = 0;
+        let discountedTotalPrice = 0
         $("#provinsi").on('change', function() {
             $("#kabupaten").empty();
             var id_province = $(this).val();
@@ -450,7 +450,7 @@ $submit = [
         });
 
         $("#voucher").on("input", () => {
-            var voucherInputted = $("#voucher").val()
+            let voucherInputted = $("#voucher").val()
             console.log(voucherInputted);
             $.ajax({
                 url: "<?= site_url('shop/getdiscount') ?>",
@@ -469,12 +469,12 @@ $submit = [
                         console.log("barangnya berapa=" + jumlah_pembelian);
                         console.log("data=" + data);
 
-                        var discountPercentage = data["besar_diskon"] / 100
+                        let discountPercentage = data["besar_diskon"] / 100
                         console.log("discount in percent" + discountPercentage);
 
                         discountedTotalPrice = harga * discountPercentage
 
-                        var totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
+                        let totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
                         console.log("total harga" + totalHarga)
                         $("#total_harga").val(totalHarga);
                     }
