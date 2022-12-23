@@ -60,7 +60,13 @@ $submit = [
     'value' => 'Beli',
     'class' => 'primary-btn pd-cart'
 ];
-
+$diskonInRupiah = [
+    'name' => 'diskon_ribu',
+    'id' => 'diskon_ribu',
+    'value' => null,
+    'readonly' => true,
+    'class' => 'form-control',
+];
 ?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
@@ -299,6 +305,10 @@ $submit = [
                                         <?= form_input($kode_voucher) ?>
                                     </div>
                                     <div class="form-group">
+                                        <?= form_label('Diskon (Rp.)', 'diskon_ribu') ?>
+                                        <?= form_input($diskonInRupiah) ?>
+                                    </div>
+                                    <div class="form-group">
                                         <?= form_label('Total Harga', 'total_harga') ?>
                                         <?= form_input($total_harga) ?>
                                     </div>
@@ -473,7 +483,7 @@ $submit = [
                         console.log("discount in percent" + discountPercentage);
 
                         discountedTotalPrice = harga * discountPercentage
-
+                        $("#diskon_ribu").val(discountedTotalPrice)
                         let totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
                         console.log("total harga" + totalHarga)
                         $("#total_harga").val(totalHarga);
