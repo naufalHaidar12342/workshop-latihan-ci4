@@ -145,13 +145,13 @@ class Shop extends BaseController
     {
         if ($this->request->isAJAX()) {
             $sentDiscount = $this->request->getGet("voucher_code");
-            $data = $this->diskonModel
+            $sendDiscountData = $this->diskonModel
                 ->select("*")
                 ->where("aktif", 1)
                 ->where("tanggal_akhir_berlaku >", $this->todayDate)
                 ->where("kode_voucher", $sentDiscount)
                 ->first();
-            return $this->response->setJSON($data);
+            return $this->response->setJSON($sendDiscountData);
         }
     }
 }
