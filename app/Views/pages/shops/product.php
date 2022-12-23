@@ -381,7 +381,7 @@ $submit = [
         var jumlah_pembelian = 1;
         var harga = <?= $barangs->harga ?>;
         var ongkir = 0;
-
+        var discountedTotalPrice = 0
         $("#provinsi").on('change', function() {
             $("#kabupaten").empty();
             var id_province = $(this).val();
@@ -448,27 +448,34 @@ $submit = [
             var total_harga = (jumlah_pembelian * harga) + ongkir;
             $("#total_harga").val(total_harga);
         });
-        $("#voucher").on("change", () => {
-            // check if inputted voucher do exist
+
+        $("#voucher").on("input", () => {
+            var voucherInputted = $("#voucher").val()
+            console.log(voucherInputted);
             $.ajax({
-                url: "<?= site_url('shop/getdiscountt') ?>",
+                url: "<?= site_url('shop/getdiscount') ?>",
                 type: 'GET',
                 data: {
-                    'voucher_code': $kode_voucher,
+                    'voucher_code': voucherInputted,
 
                 },
                 dataType: 'json',
-                success: ((dataSent) => {
-                    if (!dataSent) {
-                        alert("Voucher diskon tidak ditemukan. Coba lagi dengan kode voucher lain.")
+                success: function(data) {
+                    if (!data) {
+                        console.log("Voucher diskon tidak ditemukan. Coba lagi dengan kode voucher lain.")
                     } else {
-                        let discountPercentage = dataSent["besar_diskon"] / 100
-                        let discountedTotalPrice = (jumlah_pembelian * harga) + ongkir
-                        let totalHarga = ((jumlah_pembelian * harga) + ongkir) - discountedTotalPrice
-                        console.log(totalHarga)
+                        console.log("ongkir=" + ongkir);
+                        console.log("harga=" + harga);
+                        console.log("barangnya berapa=" + jumlah_pembelian);
+                        console.log("data=" + data);
+                        var discountPercentage = data["besar_diskon"] / 100
+                        console.log("discount in percent" + discountPercentage);
+                        discountedTotalPrice = harga * discountPercentage
+                        var totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
+                        console.log("total harga" + totalHarga)
                         $("#total_harga").val(totalHarga);
                     }
-                })
+                }
             })
 
         })

@@ -96,7 +96,7 @@ class Shop extends BaseController
                 'kategoris' => $kategoriProduct,
                 'komentars' => $komentar,
                 'provinsi' => json_decode($provinsi)->rajaongkir->results,
-                'diskons' => $diskon,
+
             ]
         );
     }
@@ -145,12 +145,13 @@ class Shop extends BaseController
     {
         if ($this->request->isAJAX()) {
             $sentDiscount = $this->request->getGet("voucher_code");
-            $sendDiscountData = $this->diskonModel
+            $data = $this->diskonModel
                 ->select("*")
+                ->where("aktif", 1)
                 ->where("tanggal_akhir_berlaku >", $this->todayDate)
                 ->where("kode_voucher", $sentDiscount)
                 ->first();
-            return $this->response->setJSON($sendDiscountData);
+            return $this->response->setJSON($data);
         }
     }
 }
