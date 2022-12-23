@@ -468,9 +468,12 @@ $submit = [
                         console.log("harga=" + harga);
                         console.log("barangnya berapa=" + jumlah_pembelian);
                         console.log("data=" + data);
+
                         var discountPercentage = data["besar_diskon"] / 100
                         console.log("discount in percent" + discountPercentage);
+
                         discountedTotalPrice = harga * discountPercentage
+
                         var totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
                         console.log("total harga" + totalHarga)
                         $("#total_harga").val(totalHarga);
