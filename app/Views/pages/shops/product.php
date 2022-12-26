@@ -484,6 +484,7 @@ $diskonInRupiah = [
 
                         discountedTotalPrice = harga * discountPercentage
                         $("#diskon_ribu").val(discountedTotalPrice)
+
                         let totalHarga = (jumlah_pembelian * (harga - discountedTotalPrice)) + ongkir
                         console.log("total harga" + totalHarga)
                         $("#total_harga").val(totalHarga);
