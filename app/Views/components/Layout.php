@@ -30,9 +30,9 @@
     <div class="loader"></div>
   </div>
 
-  <?= $this->include("/components/navbar"); ?>
+  <?= $this->include("/components/Navbar"); ?>
   <?= $this->renderSection("konten-website"); ?>
-  <?= $this->include("/components/footer"); ?>
+  <?= $this->include("/components/Footer"); ?>
 
 
 

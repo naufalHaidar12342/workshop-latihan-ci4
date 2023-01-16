@@ -1,4 +1,4 @@
-<?= $this->extend("components/layout") ?>
+<?= $this->extend("components/Layout") ?>
 <?= $this->section("konten-website") ?>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">

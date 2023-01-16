@@ -64,7 +64,7 @@
                             <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                 <div class="card-body">
                                     <?php foreach ($transaksis as $index => $transaksi) : ?>
-                                        <p><a href="<?= site_url('invoice/' . $transaksi->id . '') ?>">Transaction <?= $transaksi->created_date ?></a></p>
+                                        <p><a style="color: blue;" href="<?= site_url('invoice/' . $transaksi->id . '') ?>">Transaction <?= $transaksi->created_date ?></a></p>
                                     <?php endforeach ?>
                                 </div>
                             </div>

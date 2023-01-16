@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 class Komentar extends BaseController
 {
+    private $validation;
+    private $session;
     public function __construct()
     {
         helper('form');

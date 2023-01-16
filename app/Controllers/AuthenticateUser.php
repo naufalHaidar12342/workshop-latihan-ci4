@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 
 class AuthenticateUser extends BaseController
 {
+    private $validation;
+    private $session;
     public function __construct()
     {
         helper('form');

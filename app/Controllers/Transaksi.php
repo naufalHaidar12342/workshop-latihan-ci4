@@ -16,6 +16,7 @@ class Transaksi extends BaseController
     private $pembeli;
     private $pdf;
     private $diskonModel;
+
     public function __construct()
     {
         helper('form');
