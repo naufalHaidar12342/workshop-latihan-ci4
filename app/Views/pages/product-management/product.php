@@ -5,6 +5,11 @@
     <div class="text-center font-weight-bolder">
         <h3>Atur Produk </h3>
     </div>
+    <?php if (session()->getFlashdata("pesan")) : ?>
+        <div class="alert alert-success font-weight-medium mt-5" role="alert" style="font-size: 24px;">
+            <?= session()->getFlashdata("pesan") ?>
+        </div>
+    <?php endif ?>
     <div class="d-flex justify-content-end py-5">
         <a href="<?= site_url("/product-management/tambah") ?>" class="btn btn-primary btn-lg font-weight-bold">Tambah Produk</a>
     </div>

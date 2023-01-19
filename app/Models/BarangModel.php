@@ -20,5 +20,7 @@ class BarangModel extends Model
         'updated_by'
     ];
     protected $returnType = 'App\Entities\Barang';
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
+    protected $createdField = "created_date";
+    protected $updatedField = "updated_date";
 }

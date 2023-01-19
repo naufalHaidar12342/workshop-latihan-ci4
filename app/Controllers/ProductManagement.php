@@ -45,7 +45,8 @@ class ProductManagement extends BaseController
 
     public function simpanProduk()
     {
-        // dd($this->request->getPost());
+
+        $flashNamaProduk = $this->request->getPost("nama-produk");
         $this->barangModel->save([
             "nama" => $this->request->getPost("nama-produk"),
             "harga" => $this->request->getPost("harga-produk"),
@@ -53,19 +54,23 @@ class ProductManagement extends BaseController
             "gambar" => $this->request->getPost("gambar-produk"),
             "id_kategori" => $this->request->getPost("kategori"),
             "created_by" => 1,
-            "created_date" => $this->productCreatedAt,
             "updated_by" => 1,
-            "updated_date" => $this->productUpdatedAt,
         ]);
-
+        session()->setFlashdata("pesan", "Data untuk produk {$flashNamaProduk} berhasil dimasukkan!");
         return redirect()->to("product-management");
     }
 
     public function editProduct()
     {
         $id = $this->request->uri->getSegment(3);
-
+        $kategori = $this->kategoriModel->findAll();
         $barang = $this->barangModel->find($id);
+        // dd($barang);
+
+        return view("/pages/product-management/edit-product", [
+            "editedProduk" => $barang,
+            "kategoriProduk" => $kategori,
+        ]);
     }
 
     public function hapusProduct()
