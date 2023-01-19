@@ -19,7 +19,7 @@ class ProductManagement extends BaseController
         helper("form");
         $this->barangModel = new BarangModel();
         $this->kategoriModel = new KategoriModel();
-        $this->productCreatedAt = Time::today()->toDateTimeString();
+        $this->productCreatedAt = Time::now()->toDateTimeString();
         $this->productUpdatedAt = Time::now()->toDateTimeString();
     }
 
