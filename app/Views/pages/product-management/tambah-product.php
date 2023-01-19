@@ -2,7 +2,7 @@
 <?= $this->section("konten-website") ?>
 <div class="w-100 p-5">
     <h3 class="text-center my-5">Tambah Produk</h3>
-    <form action="/product-management/simpanProduk" method="POST">
+    <form action="/product-management/simpan-produk" method="POST">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nama Produk</label>
             <div class="col-sm-10">

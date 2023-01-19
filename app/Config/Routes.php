@@ -70,7 +70,7 @@ $routes->get("product-management", "ProductManagement::index");
 $routes->get("product-management/tambah", "ProductManagement::tambahProduct");
 $routes->get("product-management/edit/(:segment)", "ProductManagement::editProduct/$1");
 $routes->get("product-management/hapus/(:segment)", "ProductManagement::hapusProduct/$1");
-$routes->post("product-management/simpanProduk", "ProductManagement::simpanProduk");
+$routes->post("product-management/simpan-produk", "ProductManagement::simpanProduk");
 /*
  * --------------------------------------------------------------------
  * Additional Routing
