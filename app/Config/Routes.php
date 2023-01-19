@@ -64,6 +64,13 @@ $routes->add('komentar/create', 'Komentar::create');
 
 // route of shop's contact
 $routes->add('contact', 'Home::contact');
+
+// product management (for logged in user only)
+$routes->get("product-management", "ProductManagement::index");
+$routes->get("product-management/tambah", "ProductManagement::tambahProduct");
+$routes->get("product-management/edit/(:segment)", "ProductManagement::editProduct/$1");
+$routes->get("product-management/hapus/(:segment)", "ProductManagement::hapusProduct/$1");
+$routes->post("product-management/simpanProduk", "ProductManagement::simpanProduk");
 /*
  * --------------------------------------------------------------------
  * Additional Routing

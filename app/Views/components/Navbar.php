@@ -78,6 +78,11 @@ $uri = service('uri');
           <li <?= ($uri->getSegment(1) == '') ? 'class="active"' : '' ?>>
             <a href="<?= site_url("/") ?>">Home</a>
           </li>
+          <?php if ($session->get("isLoggedIn")) : ?>
+            <li <?= ($uri->getSegment(1) == 'product') ? 'class="active"' : '' ?>>
+              <a href="<?= site_url("product-management") ?>">Product</a>
+            </li>
+          <?php endif ?>
           <li <?= ($uri->getSegment(1) == 'shop') ? 'class="active"' : '' ?>>
             <a href="<?= site_url("shop") ?>">Shop</a>
           </li>

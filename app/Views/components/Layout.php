@@ -22,6 +22,11 @@
   <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css" />
   <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css" />
   <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  <style>
+    .table>tbody>td>tr>* {
+      vertical-align: middle;
+    }
+  </style>
 </head>
 
 <body>
